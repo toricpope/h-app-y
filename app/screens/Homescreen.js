@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, View, Button, ScrollView} from 'react-native';
+import { Text, StyleSheet, View, Button} from 'react-native';
 import { Location, Permissions } from 'expo';
 import Map from '../components/Map';
 import YelpService from '../services/yelp';
@@ -62,7 +62,6 @@ export default class Homescreen extends React.Component {
 
   static navigationOptions = {
     header: null,
-    footer: null
   }
 
   render() {

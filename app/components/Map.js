@@ -21,7 +21,7 @@ export default class Map extends Component {
       [
         {
           text: 'No',
-          onPress: () => console.log('No Pressed'),
+          onPress: () => {},
           style: 'cancel',
         },
         {

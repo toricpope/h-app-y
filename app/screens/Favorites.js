@@ -1,10 +1,5 @@
 import React from 'react';
 import { Text, StyleSheet, View, Button, ScrollView, AsyncStorage, Alert} from 'react-native';
-import { Location, Permissions } from 'expo';
-import Map from '../components/Map';
-import YelpService from '../services/yelp';
-import ActionButton from 'react-native-action-button';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconAD from 'react-native-vector-icons/AntDesign';
 
 
@@ -16,7 +11,7 @@ export default class Favorites extends React.Component {
     };
   }
 
-  async getItems() {
+  async getFaves() {
     const keys = await AsyncStorage.getAllKeys();
     const items = await AsyncStorage.multiGet(keys);
     let valueArr = [];
@@ -31,7 +26,7 @@ export default class Favorites extends React.Component {
 
   componentDidMount() {
     try {
-      this.getItems();
+      this.getFaves();
     } catch(err) {
       console.error(err);
     }
@@ -40,7 +35,7 @@ export default class Favorites extends React.Component {
   async removeFromFaves(key) {
     try {
       await AsyncStorage.removeItem(key);
-      this.getItems();
+      this.getFaves();
     } catch (err) {
       console.log(err);
     }
@@ -53,7 +48,7 @@ export default class Favorites extends React.Component {
       [
         {
           text: 'No',
-          onPress: () => console.log('No Pressed'),
+          onPress: () => {},
           style: 'cancel',
         },
         {
@@ -66,7 +61,6 @@ export default class Favorites extends React.Component {
 
   static navigationOptions = {
     header: null,
-    footer: null
   }
 
   render() {
