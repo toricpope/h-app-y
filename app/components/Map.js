@@ -7,7 +7,6 @@ const Marker = MapView.Marker;
 
 export default class Map extends Component {
   async addToFaves(place) {
-    console.log(place);
     try {
       await AsyncStorage.setItem(place.name, JSON.stringify(place));
     } catch (err) {
@@ -25,7 +24,10 @@ export default class Map extends Component {
           onPress: () => console.log('No Pressed'),
           style: 'cancel',
         },
-        {text: 'Yes', onPress: () => this.addToFaves(place)},
+        {
+          text: 'Yes',
+          onPress: () => this.addToFaves(place)
+        },
       ],
       {cancelable: false},
     );
