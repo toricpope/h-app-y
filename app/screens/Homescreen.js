@@ -70,14 +70,14 @@ export default class Homescreen extends React.Component {
     <View style={{flex: 1}}>
       <View style={styles.header}>
         <Text style={styles.title}>h app y</Text>
-        <Button title='faves' color='#effd5f' onPress={() => this.props.navigation.navigate('Favorites')}/>
+        <Button title='faves' color='#fce205' onPress={() => this.props.navigation.navigate('Favorites')}/>
       </View>
         <Map
           region={region}
           places={places}
         />
       <View style={styles.footer}>
-        <ActionButton buttonColor='#FCE205'>
+        <ActionButton buttonColor='#fce205'>
           <ActionButton.Item buttonColor='#fada5e' title="Spas" onPress={() => this.handleFilter({ term: 'spa' })}>
             <Icon name="flower" style={styles.actionButtonIcon} />
           </ActionButton.Item>

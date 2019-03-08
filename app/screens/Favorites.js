@@ -15,7 +15,7 @@ export default class Favorites extends React.Component {
     return (
     <View style={{flex: 1}}>
       <View style={styles.header}>
-        <Button title='home' color='#effd5f' onPress={() => this.props.navigation.navigate('Home')}/>
+        <Button title='map' color='#fce205' onPress={() => this.props.navigation.navigate('Home')}/>
         <Text style={styles.title}>h app y</Text>
       </View>
       <View style={styles.page}>
