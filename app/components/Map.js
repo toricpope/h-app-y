@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import { MapView } from 'expo';
 import Icon from 'react-native-vector-icons/AntDesign';
-import { Alert } from 'react-native';
+import { Alert, AsyncStorage} from 'react-native';
 
 const Marker = MapView.Marker;
 
 export default class Map extends Component {
+  async addToFaves(place) {
+    console.log(place);
+    try {
+      await AsyncStorage.setItem(place.name, JSON.stringify(place));
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   handlePress(markerData, place) {
     Alert.alert(
       'Add to favorites?',
@@ -16,7 +25,7 @@ export default class Map extends Component {
           onPress: () => console.log('No Pressed'),
           style: 'cancel',
         },
-        {text: 'Yes', onPress: () => console.log('Yes Pressed', place)},
+        {text: 'Yes', onPress: () => this.addToFaves(place)},
       ],
       {cancelable: false},
     );

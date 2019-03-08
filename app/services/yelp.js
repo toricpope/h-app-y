@@ -27,7 +27,7 @@ const getPlaces = (userLocation, filter = {}) => {
           coords: business.coordinates,
           rating: business.rating,
           location: business.location,
-          price: business.price
+          price: business.price,
         };
       })
     )

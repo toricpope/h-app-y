@@ -72,16 +72,16 @@ export default class Homescreen extends React.Component {
       <View style={styles.header}>
         <Text style={styles.title}>
           h
-          <Text style={{color:'#fda50f'}}>app</Text>
+          <Text style={{color:'#fce205'}}>app</Text>
           y
         </Text>
-        <Button title='faves' color='#fce205' onPress={() => this.props.navigation.navigate('Favorites')}/>
+        <Button title='faves' color='#ffddaf' onPress={() => this.props.navigation.navigate('Favorites')}/>
       </View>
         <Map
           region={region}
           places={places}
         />
-        <ActionButton buttonColor='#fce205'>
+        <ActionButton buttonColor='#ffc30b'>
           <ActionButton.Item buttonColor='#fada5e' title="Spas" onPress={() => this.handleFilter({ term: 'spa' })}>
             <Icon name="flower" style={styles.actionButtonIcon} />
           </ActionButton.Item>
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'Verdana',
     fontSize: 30,
-    color: '#ffddaf'
+    color: '#fda50f'
   },
   actionButtonIcon: {
     fontSize: 20,
