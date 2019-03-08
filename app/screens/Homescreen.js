@@ -15,8 +15,8 @@ const region = {
 };
 
 const deltas = {
-  latitudeDelta: 0.0922,
-  longitudeDelta: 0.0421
+  latitudeDelta: 0.00922,
+  longitudeDelta: 0.01421
 };
 
 export default class Homescreen extends React.Component {
@@ -103,9 +103,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: '#ffc30b',
-    paddingRight: 10,
-    paddingLeft: 137,
-    height: 75
+    height: 80,
+    paddingRight: 20,
+    paddingLeft: 20
   },
   title: {
     fontFamily: 'Verdana',

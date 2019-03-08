@@ -68,12 +68,12 @@ export default class Favorites extends React.Component {
     return (
     <View style={{flex: 1}}>
       <View style={styles.header}>
-        <Button title='map' color='#ffddaf' onPress={() => this.props.navigation.navigate('Home')}/>
         <Text style={styles.title}>
           h
           <Text style={{color:'#fce205'}}>app</Text>
           y
         </Text>
+        <Button title='map' color='#ffddaf' onPress={() => this.props.navigation.navigate('Home')}/>
       </View>
       <ScrollView style={styles.page}>
         {
@@ -110,9 +110,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: '#ffc30b',
-    paddingRight: 137,
-    paddingLeft: 10,
-    height: 75
+    height: 80,
+    paddingRight: 20,
+    paddingLeft: 20
   },
   title: {
     fontFamily: 'Verdana',
