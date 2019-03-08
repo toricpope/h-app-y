@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, View, Animated, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 import { Location, Permissions } from 'expo';
 import Map from './app/components/Map';
 import YelpService from './app/services/yelp';
@@ -31,10 +31,10 @@ export default class App extends React.Component {
     this.getLocationAsync();
   }
 
-  async getPlaces () {
+  async getPlaces (filter) {
     const { latitude, longitude } = this.state.region;
     const userLocation = { latitude, longitude };
-    const places = await YelpService.getPlaces(userLocation);
+    const places = await YelpService.getPlaces(userLocation, filter);
     this.setState({ places });
   }
 
@@ -56,6 +56,10 @@ export default class App extends React.Component {
     await this.getPlaces();
   }
 
+  async handleFilter(filter) {
+    await this.getPlaces(filter);
+  }
+
   render() {
     const { region, places } = this.state;
     return (
@@ -69,13 +73,13 @@ export default class App extends React.Component {
         />
       <View style={styles.footer}>
         <ActionButton buttonColor='#fda50f'>
-          <ActionButton.Item buttonColor='#fada5e' title="Spas" onPress={() => {}}>
+          <ActionButton.Item buttonColor='#fada5e' title="Spas" onPress={() => this.handleFilter({ term: 'spa' })}>
             <Icon name="flower" style={styles.actionButtonIcon} />
           </ActionButton.Item>
-          <ActionButton.Item buttonColor='#f8e473' title="Yoga" onPress={() => {}}>
+          <ActionButton.Item buttonColor='#f8e473' title="Yoga" onPress={() => this.handleFilter({ term: 'yoga,pilates'})}>
             <Icon name="human-handsup" style={styles.actionButtonIcon} />
           </ActionButton.Item>
-          <ActionButton.Item buttonColor='#f8de7e' title="Parks" onPress={() => {}}>
+          <ActionButton.Item buttonColor='#f8de7e' title="Parks" onPress={() => this.handleFilter({ term: 'park' })}>
             <Icon name="tree" style={styles.actionButtonIcon} />
           </ActionButton.Item>
         </ActionButton>

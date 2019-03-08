@@ -7,7 +7,7 @@ const Marker = MapView.Marker;
 export default class Map extends Component {
   renderMarkers() {
     return this.props.places.map((place, i) => (
-      <Marker key={i} title={place.name} coordinate={place.coords}>
+      <Marker key={i} title={place.name} coordinate={place.coords} description={`Rating: ${place.rating.toString()}`}>
         <Icon name="smile-circle" size={25} color="#fda50f"/>
       </Marker>
     ));

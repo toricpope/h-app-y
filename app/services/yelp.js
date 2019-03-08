@@ -9,14 +9,15 @@ const api = axios.create({
   },
 });
 
-const getPlaces = userLocation => {
+const getPlaces = (userLocation, filter = {}) => {
   return api
     .get('/businesses/search', {
       params: {
-        limit: 40,
+        limit: 35,
         sortBy: 'rating',
         categories: 'spas,hotsprings,othersalons,massage,skincare,yoga,pilates, tea, acupuncture,chiropractors,cryotherapy,floatspa,massage_therapy,oxygenbars,healthretreats,bookstores,parks,beaches',
         ...userLocation,
+        ...filter
       },
     })
     .then(res =>
@@ -24,6 +25,7 @@ const getPlaces = userLocation => {
         return {
           name: business.name,
           coords: business.coordinates,
+          rating: business.rating
         };
       })
     )
