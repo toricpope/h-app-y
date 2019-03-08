@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, View, Button} from 'react-native';
+import { Text, StyleSheet, View, Button, ScrollView} from 'react-native';
 import { Location, Permissions } from 'expo';
 import Map from '../components/Map';
 import YelpService from '../services/yelp';
@@ -61,7 +61,8 @@ export default class Homescreen extends React.Component {
   }
 
   static navigationOptions = {
-    header: null
+    header: null,
+    footer: null
   }
 
   render() {
@@ -69,14 +70,17 @@ export default class Homescreen extends React.Component {
     return (
     <View style={{flex: 1}}>
       <View style={styles.header}>
-        <Text style={styles.title}>h app y</Text>
+        <Text style={styles.title}>
+          h
+          <Text style={{color:'#fda50f'}}>app</Text>
+          y
+        </Text>
         <Button title='faves' color='#fce205' onPress={() => this.props.navigation.navigate('Favorites')}/>
       </View>
         <Map
           region={region}
           places={places}
         />
-      <View style={styles.footer}>
         <ActionButton buttonColor='#fce205'>
           <ActionButton.Item buttonColor='#fada5e' title="Spas" onPress={() => this.handleFilter({ term: 'spa' })}>
             <Icon name="flower" style={styles.actionButtonIcon} />
@@ -88,38 +92,26 @@ export default class Homescreen extends React.Component {
             <Icon name="tree" style={styles.actionButtonIcon} />
           </ActionButton.Item>
         </ActionButton>
-      </View>
+        <View style={{bottom: 0}}/>
     </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 5,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   header: {
     alignItems: 'center',
-    flex: 0.6,
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: '#ffc30b',
     paddingRight: 10,
-    paddingLeft: 125
+    paddingLeft: 137,
+    height: 75
   },
   title: {
     fontFamily: 'Verdana',
     fontSize: 30,
     color: '#ffddaf'
-  },
-  footer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 0.5,
-    backgroundColor: '#ffc30b'
   },
   actionButtonIcon: {
     fontSize: 20,

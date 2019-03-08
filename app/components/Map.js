@@ -6,7 +6,7 @@ import { Alert } from 'react-native';
 const Marker = MapView.Marker;
 
 export default class Map extends Component {
-  handlePress() {
+  handlePress(markerData, place) {
     Alert.alert(
       'Add to favorites?',
       '',
@@ -16,7 +16,7 @@ export default class Map extends Component {
           onPress: () => console.log('No Pressed'),
           style: 'cancel',
         },
-        {text: 'Yes', onPress: () => console.log('Yes Pressed')},
+        {text: 'Yes', onPress: () => console.log('Yes Pressed', place)},
       ],
       {cancelable: false},
     );
@@ -24,7 +24,7 @@ export default class Map extends Component {
 
   renderMarkers() {
     return this.props.places.map((place, i) => (
-      <Marker key={i} title={place.name} coordinate={place.coords} description={`Rating: ${place.rating.toString()}`}  onCalloutPress={() => this.handlePress()}>
+      <Marker key={i} title={place.name} coordinate={place.coords} description={`Rating: ${place.rating.toString()}`} onCalloutPress={() => this.handlePress(this, place)}>
         <Icon name="smile-circle" size={25} color="#fda50f"/>
       </Marker>
     ));
@@ -47,6 +47,6 @@ export default class Map extends Component {
 const styles = {
   container: {
     width: '100%',
-    height: '80%',
+    height: '100%',
   }
 };

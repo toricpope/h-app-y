@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, View, Button} from 'react-native';
+import { Text, StyleSheet, View, Button, ScrollView} from 'react-native';
 import { Location, Permissions } from 'expo';
 import Map from '../components/Map';
 import YelpService from '../services/yelp';
@@ -8,7 +8,8 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default class Favorites extends React.Component {
   static navigationOptions = {
-    header: null
+    header: null,
+    footer: null
   }
 
   render() {
@@ -16,33 +17,29 @@ export default class Favorites extends React.Component {
     <View style={{flex: 1}}>
       <View style={styles.header}>
         <Button title='map' color='#fce205' onPress={() => this.props.navigation.navigate('Home')}/>
-        <Text style={styles.title}>h app y</Text>
+        <Text style={styles.title}>
+          h
+          <Text style={{color:'#fda50f'}}>app</Text>
+          y
+        </Text>
       </View>
-      <View style={styles.page}>
-
-      </View>
-      <View style={styles.footer}>
-      </View>
+      <ScrollView style={styles.page}>
+        <Text style={{fontSize:150}}>Scroll me plz</Text>
+      </ScrollView>
     </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 5,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   header: {
     alignItems: 'center',
-    flex: 0.6,
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: '#ffc30b',
-    paddingRight: 125,
-    paddingLeft: 10
+    paddingRight: 137,
+    paddingLeft: 10,
+    height: 75
   },
   title: {
     fontFamily: 'Verdana',
@@ -51,12 +48,6 @@ const styles = StyleSheet.create({
   },
   page: {
     flex: 5
-  },
-  footer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 0.5,
-    backgroundColor: '#ffc30b'
   }
 });
 
