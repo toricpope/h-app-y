@@ -74,7 +74,7 @@ export default class Homescreen extends React.Component {
           <Text style={{color:'#fce205'}}>app</Text>
           y
         </Text>
-        <Button title='faves' color='#ffddaf' onPress={() => this.props.navigation.navigate('Favorites')}/>
+        <Button title='faves' color='#ffddaf' accessibilityLabel="Go to favorites" onPress={() => this.props.navigation.navigate('Favorites')}/>
       </View>
         <Map
           region={region}

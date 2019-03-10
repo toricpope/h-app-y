@@ -73,7 +73,7 @@ export default class Favorites extends React.Component {
           <Text style={{color:'#fce205'}}>app</Text>
           y
         </Text>
-        <Button title='map' color='#ffddaf' onPress={() => this.props.navigation.navigate('Home')}/>
+        <Button title='map' color='#ffddaf'accessibilityLabel="Back to map" onPress={() => this.props.navigation.navigate('Home')}/>
       </View>
       <ScrollView style={styles.page}>
         {
