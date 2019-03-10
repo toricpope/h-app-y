@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19004,
-  "packagerPid": 10566,
+  "packagerPort": 19003,
+  "packagerPid": 26556,
   "expoServerNgrokUrl": "https://qi-vp4.toricpope.stackaton.exp.direct",
   "packagerNgrokUrl": "https://packager.qi-vp4.toricpope.stackaton.exp.direct",
-  "ngrokPid": 10591
+  "ngrokPid": 26570
 }
