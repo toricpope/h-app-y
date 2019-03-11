@@ -6,7 +6,7 @@ import YelpService from '../services/yelp';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-// A placeholder until we get our own location
+// Placeholder until we get user's location
 const region = {
   latitude: 37.321996988,
   longitude: -122.0325472123455,
